@@ -4,8 +4,11 @@
   "description": "Small transport plugin for Zeptomail API and Nodemailer v4+.",
   "author": "Abimbola Hassan <infitizon@gmail.com>",
   "license": "MIT",
-  "main": "dist/ZeptomailTransport.js",
-  "types": "dist/ZeptomailTransport.d.ts",
+  "main": "./dist/ZeptomailTransport.js",
+  "types": "./dist/ZeptomailTransport.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "keywords": [
     "zeptomail",
     "nodemailer",
