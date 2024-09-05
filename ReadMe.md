@@ -1,6 +1,6 @@
 # nodemailer-zeptomail-transport
 # Intro
-The custom transport plugin that allows to send email using Nodemailer via [Zeptomail](https://www.zoho.com/zeptomail/email-api.html)  from [ZOHO](https://www.zoho.com/)
+A custom transport plugin that allows to send email using Nodemailer via [Zeptomail](https://www.zoho.com/zeptomail/email-api.html)  from [ZOHO](https://www.zoho.com/)
 # Purpose
 A Tiny plugin for the new Zeptomail API and Nodemailer v4+. Really tiny and optimized plugin written in Typescript
 # Support the project
@@ -64,4 +64,4 @@ Common fields in [Nodemailer](https://nodemailer.com/message/#commmon-fields) ar
    });
 ```
 ## License
-MIT
+[MIT](https://github.com/infinitizon/nodemailer-zeptomail-transport/blob/master/LICENSE)
