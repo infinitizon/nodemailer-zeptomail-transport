@@ -1,8 +1,22 @@
 {
   "name": "nodemailer-zeptomail-transport",
   "version": "1.0.0",
-  "description": "To help with zoho mail transport",
-  "main": "index.js",
+  "description": "Small transport plugin for Zeptomail API and Nodemailer v4+.",
+  "author": "Abimbola Hassan <infitizon@gmail.com>",
+  "license": "MIT",
+  "main": "dist/ZeptomailTransport.js",
+  "types": "dist/ZeptomailTransport.d.ts",
+  "keywords": [
+    "zeptomail",
+    "nodemailer",
+    "transport",
+    "zeptomail nodemailer transport",
+    "nodemailer zeptomail transport"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/infinitizon/nodemailer-zeptomail-transport.git"
+  },
   "scripts": {
     "_build-ts": "tsc",
     "_clean": "rm -rf ./dist",
@@ -10,28 +24,24 @@
     "test": "jest --notify --forceExit --coverage --verbose --config ./jest.conf.json",
     "tslint": "tslint -c tslint.json -p tsconfig.json -t stylish"
   },
-  "keywords": [
-    "zeptomail",
-    "nodemailer",
-    "transport"
-  ],
-  "author": "Abimbola Hassan (infitizon@gmail.com)",
-  "license": "ISC",
   "peerDependencies": {
     "nodemailer": ">=4.0.0"
   },
+  "devDependencies": {
+    "@types/jest": "26.0.12",
+    "@types/node": "14.6.2",
+    "@types/nodemailer": "6.4.0",
+    "jest": "26.4.2",
+    "nodemailer": "6.4.11",
+    "ts-jest": "26.3.0",
+    "tslint": "6.1.3",
+    "tslint-eslint-rules": "3.0.0",
+    "typescript": "4.0.2"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
     "axios": "^1.7.7"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "@types/node": "^22.5.4",
-    "@types/nodemailer": "^6.4.15",
-    "jest": "^29.7.0",
-    "nodemailer": "^6.9.15",
-    "ts-jest": "^29.2.5",
-    "tslint": "^6.1.3",
-    "tslint-eslint-rules": "5.4.0",
-    "typescript": "^5.5.4"
   }
 }

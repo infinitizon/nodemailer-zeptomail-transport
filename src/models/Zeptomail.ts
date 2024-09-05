@@ -25,23 +25,22 @@ export namespace Zeptomail {
   };
   const appendReplyTo = (data: SendMailOptions): To[] => {
     const accumulator: To[] = [];
-    if(!data['replyTo']) return [];
-    (data['replyTo'] as Address[]).forEach(to => {
-      accumulator.push({
-        address: to.address,
-        name: to.name,
-      });
+    if (data['replyTo']) return [];
+    const to = (data['replyTo'] as Address);
+    accumulator.push({
+      address: to.address,
+      name: to.name
     });
     return accumulator;
   };
   const appendAddresses = (data: SendMailOptions, type: To['type']): {email_address: To}[] => {
     const accumulator: {email_address: To}[] = [];
-    if(!type || !data[type!]) return [];
+    if (!type || !data[type!]) return [];
     (data[type] as Address[]).forEach(to => {
       accumulator.push({
-        "email_address": {
+        'email_address': {
           address: to.address,
-          name: to.name,
+          name: to.name
         }
       });
     });
@@ -91,7 +90,7 @@ export namespace Zeptomail {
         subject: data.subject,
         textbody: data.text,
         htmlbody: data.html,
-        attachments: appendAttachments(data),
+        attachments: appendAttachments(data)
       }
     };
   };

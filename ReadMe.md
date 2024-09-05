@@ -1,4 +1,6 @@
-# nodemailer-zeptomail-transport
+nodemailer-zeptomail-transport
+============================
+
 # Intro
 A custom transport plugin that allows to send email using Nodemailer via [Zeptomail](https://www.zoho.com/zeptomail/email-api.html)  from [ZOHO](https://www.zoho.com/)
 # Purpose
@@ -8,10 +10,13 @@ Please support me by clicking the star button -- It helps the engine go on
 # Documentation
 Common fields in [Nodemailer](https://nodemailer.com/message/#commmon-fields) are supported...even replyTo
 ## Quick start
-`$ npm install nodemailer-zeptomail-transport --save`
+Start by installing via [npm](https://www.npmjs.com/)
+``` bash
+$ npm install nodemailer-zeptomail-transport --save
+```
 ## Examples
-#### Send a simple mail
-```javascript
+__Send a simple mail__
+```js
    'use strict';
    const nodemailer = require('nodemailer');
    const ZeptomailTransport = require('nodemailer-zeptomail-transport');
@@ -33,8 +38,8 @@ Common fields in [Nodemailer](https://nodemailer.com/message/#commmon-fields) ar
       console.log('Something is wrong');
    });
 ```
-#### Send mail with attachments
-```javascript
+__Send mail with attachments__
+```js
    'use strict';
    const nodemailer = require('nodemailer');
    const ZeptomailTransport = require('nodemailer-zeptomail-transport');
@@ -64,4 +69,4 @@ Common fields in [Nodemailer](https://nodemailer.com/message/#commmon-fields) ar
    });
 ```
 ## License
-[MIT](https://github.com/infinitizon/nodemailer-zeptomail-transport/blob/master/LICENSE)
+[MIT](./LICENSE)

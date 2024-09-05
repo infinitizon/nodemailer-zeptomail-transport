@@ -28,7 +28,7 @@ export class ZeptomailTransport implements Transport {
    public version: string = packageJson.name;
    constructor(private options: Options) {}
 
-   send(mail: MailMessage<any>, callback: (err: Error | null, info?: SentMessageInfo) => void): void {
+   public send(mail: MailMessage, callback: (err: Error | null, info?: SentMessageInfo) => void): void {
       setImmediate(() => {
          mail.normalize((error, data) => {
             if (error) return callback(error);   
@@ -37,8 +37,8 @@ export class ZeptomailTransport implements Transport {
                url: `https://zeptomail.zoho.com/v1.1/email`,
                method: 'POST',
                headers: {
-                  "Accept": "application/json",
-                  "Content-Type": "application/json",
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
                   Authorization: this.options.apiKey
                },
                data: zeptomailData.message
