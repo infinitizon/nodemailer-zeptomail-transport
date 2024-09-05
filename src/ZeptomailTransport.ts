@@ -1,9 +1,9 @@
-import axios from 'axios';
 import * as packageJson from '../package.json';
 import type { Transport } from 'nodemailer';
 import type MailMessage from 'nodemailer/lib/mailer/mail-message';
 import type { Envelope } from 'nodemailer/lib/mime-node';
 import { Zeptomail } from './models/Zeptomail';
+import { APICall } from './services/api-call';
 
 export interface Options {
    apiKey: string;
@@ -33,16 +33,15 @@ export class ZeptomailTransport implements Transport {
          mail.normalize((error, data) => {
             if (error) return callback(error);   
             const zeptomailData = Zeptomail.buildData(data!);
-            axios.request({
-               url: `https://zeptomail.zoho.com/v1.1/email`,
-               method: 'POST',
+            APICall.post({
+               protocol: 'https:',
+               hostname: 'zeptomail.zoho.com',
+               path: '/v1.1/email',
                headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json',
                   Authorization: this.options.apiKey
-               },
-               data: zeptomailData.message
-            }).then((zeptomailResponse) => {
+               }
+            }, zeptomailData.message)
+            .then((zeptomailResponse) => {
                callback(null, {
                   envelope: mail.message.getEnvelope(),
                   messageId: mail.message.messageId(),

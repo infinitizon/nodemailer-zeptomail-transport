@@ -63,21 +63,21 @@ export namespace Zeptomail {
     }, [] as Attachments[]);
   };
 
-  const appendImages = (data: SendMailOptions): Attachments[] => {
-    if (!Array.isArray(data.attachments)) return [];
+  // const appendImages = (data: SendMailOptions): Attachments[] => {
+  //   if (!Array.isArray(data.attachments)) return [];
 
-    return data.attachments.reduce((accumulator, attachment) => {
-      if (attachment.contentType?.startsWith('image/')) {
-        accumulator.push({
-          name: attachment.cid || '',
-          mime_type: attachment.contentType,
-          content: attachment.content as string
-        });
-      }
+  //   return data.attachments.reduce((accumulator, attachment) => {
+  //     if (attachment.contentType?.startsWith('image/')) {
+  //       accumulator.push({
+  //         name: attachment.cid || '',
+  //         mime_type: attachment.contentType,
+  //         content: attachment.content as string
+  //       });
+  //     }
 
-      return accumulator;
-    }, [] as Attachments[]);
-  };
+  //     return accumulator;
+  //   }, [] as Attachments[]);
+  // };
 
   export const buildData = (data: SendMailOptions) => {
     return {
