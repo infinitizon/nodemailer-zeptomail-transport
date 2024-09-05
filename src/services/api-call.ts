@@ -10,28 +10,16 @@ export class APICall {
             res.on('data', (chunk) => chunks.push(chunk));
    
             res.on('end', () => {
-               let answer: any = JSON.parse(Buffer.concat(chunks).toString());
+               let response: any = JSON.parse(Buffer.concat(chunks).toString());
    
-               if (res.statusCode === 200) {
-               resolve(answer);
-               } else {
-               reject(answer);
-               }
-            });
+               if ([200,201].includes(res.statusCode)) resolve(response);
+               else reject(response);
+            });   
+            res.on('error', (error) => reject(error));
+         });   
+         req.on('error', (error) => reject(error));
    
-            res.on('error', (error) => {
-               reject(error);
-            });
-         });
-   
-         req.on('error', (error) => {
-            reject(error);
-         });
-   
-         if (params) {
-            req.write(params);
-         }
-   
+         if (params) req.write(params);
          req.end();
       });
    }
@@ -44,7 +32,6 @@ export class APICall {
          ...options.headers,
          'Content-Length': Buffer.byteLength(json)
       };
-  
       return this.send(options, json);
    }
 }
