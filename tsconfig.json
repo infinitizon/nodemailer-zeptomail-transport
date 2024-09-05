@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "declaration": true,
+    "noImplicitAny": false,
+    "noLib": false,
+    "resolveJsonModule": true,
+    "preserveConstEnums": false,
+    "allowUnusedLabels": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "sourceMap": false,
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "compileOnSave": false
+}
