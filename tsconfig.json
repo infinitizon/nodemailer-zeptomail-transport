@@ -9,7 +9,6 @@
     "declaration": true,
     "noImplicitAny": false,
     "noLib": false,
-    "resolveJsonModule": true,
     "preserveConstEnums": false,
     "allowUnusedLabels": false,
     "noImplicitReturns": true,
