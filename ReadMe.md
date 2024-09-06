@@ -4,7 +4,7 @@ nodemailer-zeptomail-transport
 # Intro
 A custom transport plugin that allows to send email using Nodemailer via [Zeptomail](https://www.zoho.com/zeptomail/email-api.html)  from [ZOHO](https://www.zoho.com/)
 # Purpose
-A Tiny plugin for the new Zeptomail API and Nodemailer v4+. Really tiny and optimized plugin written in Typescript
+I was looking for nodemailer transport for Zeptomail but couldn't find one. So I decided to create one. This is a tiny plugin for the new Zeptomail API and Nodemailer v4+. Really tiny and optimized plugin written in Typescript
 # Support the project
 Please support me by clicking the star button -- It helps the engine go on
 # Documentation
@@ -12,7 +12,7 @@ Common fields in [Nodemailer](https://nodemailer.com/message/#commmon-fields) ar
 ## Quick start
 Start by installing via [npm](https://www.npmjs.com/)
 ``` bash
-$ npm install nodemailer-zeptomail-transport --save
+$ npm i nodemailer-zeptomail-transport
 ```
 ## Examples
 __Send a simple mail__
@@ -21,14 +21,14 @@ __Send a simple mail__
    const nodemailer = require('nodemailer');
    const ZeptomailTransport = require('nodemailer-zeptomail-transport');
 
-  
    const zeptomail = new ZeptomailTransport({
-      apiKey: '12124124124124-key-test'
+      apiKey: 'test-2453644432757-key'
    })
+   let transport = nodemailer.createTransport(zeptomail);
 
-   transporter.sendMail({
-      from: 'email@example.com',
-      to: 'recipient@test.com',
+   transport.sendMail({
+      from: 'sender@example.com',
+      to: 'recipient@receiver.com',
       replyTo: 'reply-to@example.com',
       subject: 'Zeptomail Transport',
       text: 'Some text to send'
@@ -44,14 +44,14 @@ __Send mail with attachments__
    const nodemailer = require('nodemailer');
    const ZeptomailTransport = require('nodemailer-zeptomail-transport');
 
-  
    const zeptomail = new ZeptomailTransport({
-      apiKey: '12124124124124-key-test'
+      apiKey: 'test-2453644432757-key'
    })
+   const transport = nodemailer.createTransport(zeptomail);
 
-   transporter.sendMail({
-      from: 'email@example.com',
-      to: 'recipient@test.com',
+   transport.sendMail({
+      from: 'sender@example.com',
+      to: 'recipient@receiver.com',
       replyTo: 'reply-to@example.com',
       subject: 'Zeptomail Transport',
       html: '<!DOCTYPE html><html><body><img src="cid:attachment" alt="attachment"></body></html>',
