@@ -14,12 +14,13 @@ Start by installing via [npm](https://www.npmjs.com/)
 ``` bash
 $ npm i nodemailer-zeptomail-transport
 ```
+Be sure to get your API Key. Click [here](https://www.zoho.com/zeptomail/help/smtp-home.html#alink2) to see how
 ## Examples
 __Send a simple mail__
 ```js
    'use strict';
    const nodemailer = require('nodemailer');
-   const ZeptomailTransport = require('nodemailer-zeptomail-transport');
+   const { ZeptomailTransport } = require('nodemailer-zeptomail-transport');
 
    const zeptomail = new ZeptomailTransport({
       apiKey: 'test-2453644432757-key'
@@ -42,7 +43,7 @@ __Send mail with attachments__
 ```js
    'use strict';
    const nodemailer = require('nodemailer');
-   const ZeptomailTransport = require('nodemailer-zeptomail-transport');
+   const { ZeptomailTransport } = require('nodemailer-zeptomail-transport');
 
    const zeptomail = new ZeptomailTransport({
       apiKey: 'test-2453644432757-key'
