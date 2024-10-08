@@ -24,6 +24,7 @@ __Send a simple mail__
 
    const zeptomail = new ZeptomailTransport({
       apiKey: 'test-2453644432757-key'
+      region: 'eu', // for EU customers only
    })
    let transport = nodemailer.createTransport(zeptomail);
 
@@ -47,6 +48,7 @@ __Send mail with attachments__
 
    const zeptomail = new ZeptomailTransport({
       apiKey: 'test-2453644432757-key'
+      region: 'eu', // for EU customers only
    })
    const transport = nodemailer.createTransport(zeptomail);
 
