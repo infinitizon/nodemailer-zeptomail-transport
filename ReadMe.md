@@ -71,6 +71,6 @@ __Send mail with attachments__
       console.log('Something is wrong');
    });
 ```
-Thanks to [leo] for the PR to enable Region support
+Thanks to [leo](https://github.com/linobino1) for the PR to enable Region support
 ## License
 [MIT](./LICENSE)
