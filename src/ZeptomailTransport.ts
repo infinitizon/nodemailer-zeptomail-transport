@@ -7,6 +7,7 @@ import { APICall } from './services/api-call';
 
 export interface Options {
    apiKey: string;
+   region?: "default" | "eu";
 }
 
 export type ZeptomailResponse = {
@@ -23,9 +24,19 @@ export type SentMessageInfo = {
    response?: ZeptomailResponse[];
 };
 
+export const hostnames: Record<Options["region"], string> = {
+   default: "zeptomail.zoho.com",
+   eu: "api.zeptomail.eu",
+};
+
 export class ZeptomailTransport implements Transport {
    public name: string = packageJson.name;
    public version: string = packageJson.name;
+
+   /**
+    * @param options.apiKey {string} - The API key to use
+    * @param options.region {string} - Make sure to pass in "eu" if your zeptomail account is in the EU region. A dedicated endpoint is used for EU accounts.
+    */
    constructor(private options: Options) {}
 
    public send(mail: MailMessage, callback: (err: Error | null, info?: SentMessageInfo) => void): void {
@@ -35,7 +46,7 @@ export class ZeptomailTransport implements Transport {
             const zeptomailData = Zeptomail.buildData(data!);
             APICall.post({
                protocol: 'https:',
-               hostname: 'zeptomail.zoho.com',
+               hostname: hostnames[this.options.region ?? "default"],
                path: '/v1.1/email',
                headers: {
                   Authorization: this.options.apiKey
