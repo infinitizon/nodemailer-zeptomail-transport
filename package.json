@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-zeptomail-transport",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "description": "Small transport plugin for Zeptomail API and Nodemailer v4+.",
   "author": "Abimbola Hassan <infitizon@gmail.com>",
   "license": "MIT",
