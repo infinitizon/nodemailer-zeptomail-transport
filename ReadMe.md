@@ -34,6 +34,7 @@ __Send a simple mail__
       replyTo: 'reply-to@example.com',
       subject: 'Zeptomail Transport',
       text: 'Some text to send'
+      client_reference: "some optional unique id"
    }).then((info) => {
       console.log('SUCCESS');
    }).catch((error) => {

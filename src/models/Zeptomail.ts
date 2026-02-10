@@ -1,4 +1,4 @@
-import type { SendMailOptions } from 'nodemailer';
+import type { SendMailOptions as NodemailerSendMailOptions } from 'nodemailer';
 import type {Address} from 'nodemailer/lib/mailer';
 
 interface To {
@@ -11,6 +11,10 @@ interface Attachments {
    mime_type: string;
    name: string;
    content: string;
+}
+
+interface SendMailOptions extends NodemailerSendMailOptions {
+   client_reference?: string;
 }
 
 export namespace Zeptomail {
@@ -90,6 +94,7 @@ export namespace Zeptomail {
         subject: data.subject,
         textbody: data.text,
         htmlbody: data.html,
+        client_reference: data.client_reference,
         attachments: appendAttachments(data)
       }
     };
